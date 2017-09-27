@@ -1,0 +1,73 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="black" style="text-align:center">
+  <h1>
+    Bienvenidos a {{PageName}}!
+  </h1>
+  <img width="300" src="assets/logo_gecko.jpg">
+  <img width="300" src="https://firebasestorage.googleapis.com/v0/b/primerproyecto-bbbad.appspot.com/o/goku.jpg?alt=media&token=dd799374-3eb9-4129-800c-ae3dc5619329">
+
+</div>
+<!--
+<button (click)="CambiarM_O()">{{Mostrar_Ocultar ? 'Ocultar Areas' : 'Mostrar Areas'}}</button>
+<div *ngIf ="Mostrar_Ocultar" >
+    <h2>Nuestras áreas de desarrollo son:</h2>
+    <ul>
+      <li *ngFor= "let area of Areas">
+        {{area}}
+      </li>
+    </ul>
+    <form (submit)="AgregarArea(NuevaArea)">
+      <input 
+      #NuevaArea
+      type="text" 
+      name="addArea" 
+      placeholder="Otra Área">
+    </form>
+</div>
+
+<h2>Here are some links about us: </h2>
+<ul>
+  <li>
+    <!--se usa (target="_blank") para que se habra en una pestaña nueva--
+    <h2><a target="_blank" href="https://geckotronics.pe">WebSite</a></h2>
+  </li>
+  <li>
+    <h2><a target="_blank" href="https://facebook.com/geckotronics">FanPage</a></h2>
+  </li>
+</ul>
+-->
+<h2>Puntos de acopio</h2>
+<div class="row">
+  <div class="col-md-3" *ngFor="let nota of Notas_Existentes">  
+
+      <li class="list-group-item" >{{nota.title}}. Requiere
+        <ul>
+          <li *ngFor="let requerimiento of nota.description.split(',')"> {{requerimiento}}</li>
+        </ul>
+        <br />
+        <button (click)="EditarNota(nota)">Editar</button>
+      </li>
+
+  </div>
+</div>
+<a class="btn btn-primary btn-block" (click)="NuevaNota()">Agregar punto de acopio</a>
+<div class="col-md-6" *ngIf ="Mostrar_NuevaNota">
+  <h2>{{Editando ? 'Editar Requerimientos' : 'Agregar Requerimientos'}}</h2>
+  <input *ngIf="!Editando" class="form-control" type="text" placeholder="Ingrese el punto que requiere apoyo" [(ngModel)]="NC.title">
+  <br />
+  <input class="form-control" type="text" placeholder="Ingrese los requerimientos separados por comas" [(ngModel)]="NC.description">
+  <hr /> 
+
+  <div class="row">
+    <div class=col-md-4>
+      <a class="btn btn-primary btn-block" (click)="CrearNota()">{{Editando ? 'Editar' : 'Agregar'}}</a>
+    </div>
+    <div class=col-md-4>
+      <a class="btn btn-default btn-block" (click)="Cancelar()">Cerrar</a>
+    </div>
+    <div class=col-md-4 *ngIf="Editando">
+      <a class="btn btn-danger btn-block" (click)="EliminarNota()">Eliminar</a>
+    </div>
+  </div>
+</div>
+
