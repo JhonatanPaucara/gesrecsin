@@ -18,7 +18,7 @@
 *.sublime-workspace
 
 # IDE - VSCode
-# /.vscode
+/.vscode
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
@@ -34,7 +34,7 @@ npm-debug.log
 testem.log
 /typings
 yarn-error.log
-# .editorconfig
+.editorconfig
 
 # e2e
 /e2e/*.js
